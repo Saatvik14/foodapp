@@ -50,8 +50,6 @@ class App extends StatelessWidget {
         rating: u,
         size: 20.0,
         isReadOnly: false,
-        /*fullRatedIconData: Icons.blur_off,
-          halfRatedIconData: Icons.blur_on,*/
         color: Colors.yellow,
         borderColor: Colors.yellow,
         spacing: 0.0);
@@ -60,7 +58,6 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
           body: SingleChildScrollView(
@@ -218,7 +215,6 @@ class App extends StatelessWidget {
                             height: 10,
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width,
                             child: Image(
                               image: AssetImage('images/cardpizza.jpg'),
                             ),
@@ -314,7 +310,6 @@ class App extends StatelessWidget {
                             height: 10,
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width,
                             child: Image(
                               image: AssetImage('images/cardpizza.jpg'),
                             ),

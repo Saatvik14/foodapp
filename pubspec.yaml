@@ -22,6 +22,7 @@ environment:
 
 dependencies:
   smooth_star_rating: 1.1.1
+  form_field_validator: ^1.0.1
   flutter:
     sdk: flutter
 

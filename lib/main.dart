@@ -1,18 +1,31 @@
 import 'package:flutter/material.dart';
 import './homepage.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: MyApp(),
+      home: Sign(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
+class Sign extends StatefulWidget {
+  @override
+  Signup createState() {
+    return Signup();
+  }
+}
+
+class Signup extends State<Sign> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _autoValidate = false;
+  String _name;
+  String _email;
+  String _mobile;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return new MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
@@ -48,10 +61,17 @@ class MyApp extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       TextField(
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           hintText: 'UserName',
-                          fillColor: Colors.grey[800],
+                          filled: true,
+                          fillColor: Colors.grey[300],
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -61,14 +81,16 @@ class MyApp extends StatelessWidget {
                             borderRadius: BorderRadius.circular(60.0),
                           ),
                         ),
+                        textInputAction: TextInputAction.next,
                       ),
                       SizedBox(
                         height: 10,
                       ),
-                      TextField(
+                      TextFormField(
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
-                          fillColor: Colors.grey[800],
+                          filled: true,
+                          fillColor: Colors.grey[300],
                           hintText: 'Email',
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -79,6 +101,7 @@ class MyApp extends StatelessWidget {
                             borderRadius: BorderRadius.circular(60.0),
                           ),
                         ),
+                        textInputAction: TextInputAction.next,
                       ),
                       SizedBox(
                         height: 10,
@@ -87,7 +110,8 @@ class MyApp extends StatelessWidget {
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           hintText: 'Password',
-                          fillColor: Colors.grey[800],
+                          filled: true,
+                          fillColor: Colors.grey[300],
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -97,6 +121,7 @@ class MyApp extends StatelessWidget {
                             borderRadius: BorderRadius.circular(60.0),
                           ),
                         ),
+                        textInputAction: TextInputAction.next,
                       ),
                       SizedBox(
                         height: 10,
@@ -105,7 +130,8 @@ class MyApp extends StatelessWidget {
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           hintText: 'Phone',
-                          fillColor: Colors.grey[800],
+                          filled: true,
+                          fillColor: Colors.grey[300],
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -115,6 +141,7 @@ class MyApp extends StatelessWidget {
                             borderRadius: BorderRadius.circular(60.0),
                           ),
                         ),
+                        textInputAction: TextInputAction.done,
                       ),
                     ],
                   ),
