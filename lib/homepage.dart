@@ -55,6 +55,94 @@ class App extends StatelessWidget {
         spacing: 0.0);
   }
 
+  cd({String p, String n, String r, String fp, String fn}) {
+    return Card(
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.grey,
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Container(
+                      margin: const EdgeInsets.only(left: 10.0, top: 5),
+                      child: CircleAvatar(
+                        radius: 15,
+                        backgroundImage: AssetImage('images/$p.jpg'),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      '$n',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Container(
+                      child: Icon(
+                        Icons.favorite,
+                        color: Colors.red,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 3,
+                    ),
+                    Text(
+                      '$r',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              child: Image(
+                image: AssetImage('images/$fp.jpg'),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                right: 190,
+              ),
+              child: Text(
+                '$fn',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                right: 200,
+              ),
+              child: star(u: 3),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -66,7 +154,12 @@ class App extends StatelessWidget {
                 Container(
                   height: MediaQuery.of(context).size.height / 4.5,
                   width: MediaQuery.of(context).size.width,
-                  color: Colors.blue[400],
+                  decoration: BoxDecoration(
+                    color: Colors.blue[400],
+                    borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(20),
+                    ),
+                  ),
                   child: Column(
                     children: <Widget>[
                       Padding(
@@ -154,191 +247,26 @@ class App extends StatelessWidget {
                   height: 10,
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width / 1.1,
-                  height: MediaQuery.of(context).size.height / 2,
-                  child: Card(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                        ),
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: const EdgeInsets.only(
-                                        left: 10.0, top: 5),
-                                    child: CircleAvatar(
-                                      radius: 15,
-                                      backgroundImage:
-                                          AssetImage('images/chef.jpg'),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Text(
-                                    'Sanjeev Kapoor',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    child: Icon(
-                                      Icons.favorite,
-                                      color: Colors.red,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 3,
-                                  ),
-                                  Text(
-                                    '160',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Container(
-                            child: Image(
-                              image: AssetImage('images/cardpizza.jpg'),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              right: 190,
-                            ),
-                            child: Text(
-                              'Pizza Margherita',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              right: 200,
-                            ),
-                            child: star(u: 3),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                    width: MediaQuery.of(context).size.width / 1.1,
+                    height: MediaQuery.of(context).size.height / 2,
+                    child: cd(
+                        p: 'chef',
+                        n: 'Sanjeev Kapoor',
+                        r: '160',
+                        fp: 'cardpizza',
+                        fn: 'Pizza Margherita')),
                 SizedBox(
                   height: 20,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width / 1.1,
                   height: MediaQuery.of(context).size.height / 2,
-                  child: Card(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                        ),
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: const EdgeInsets.only(
-                                        left: 10.0, top: 5),
-                                    child: CircleAvatar(
-                                      radius: 15,
-                                      backgroundImage:
-                                          AssetImage('images/chef.jpg'),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Text(
-                                    'Sanjeev Kapoor',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    child: Icon(
-                                      Icons.favorite,
-                                      color: Colors.red,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 3,
-                                  ),
-                                  Text(
-                                    '160',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Container(
-                            child: Image(
-                              image: AssetImage('images/cardpizza.jpg'),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              right: 190,
-                            ),
-                            child: Text(
-                              'Pizza Margherita',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              right: 200,
-                            ),
-                            child: star(u: 3),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  child: cd(
+                      p: 'chef',
+                      n: 'Sanjeev Kapoor',
+                      r: '160',
+                      fp: 'cardpizza',
+                      fn: 'Pizza Margherita'),
                 ),
               ],
             ),

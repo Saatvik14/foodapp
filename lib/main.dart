@@ -30,21 +30,20 @@ class Signup extends State<Sign> {
               scrollDirection: Axis.vertical,
               child: Column(
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(40.0),
-                    child: Center(
-                      child: Container(
-                        child: Image(image: AssetImage('images/foodlogo.png')),
-                      ),
+                  Container(
+                    margin: EdgeInsets.only(top: 40),
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    child: Image(
+                      image: AssetImage('images/foodlogo.png'),
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 60,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                  Container(
+                    margin: EdgeInsets.only(right: 70),
                     child: Text(
-                      'Sign Up free account',
+                      'Sign Up Free Account',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
@@ -75,7 +74,7 @@ class Signup extends State<Sign> {
                               color: Colors.grey[600],
                             ),
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(60.0),
+                              borderRadius: BorderRadius.circular(40.0),
                             ),
                           ),
                           textInputAction: TextInputAction.next,
@@ -165,13 +164,15 @@ class Signup extends State<Sign> {
                   SizedBox(
                     height: 15,
                   ),
-                  Center(
+                  Container(
+                    width: MediaQuery.of(context).size.width / 1.2,
+                    height: MediaQuery.of(context).size.height / 15,
                     child: RaisedButton(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)),
-                      color: Colors.blue,
+                      color: Colors.deepPurple[800],
                       child: Text(
-                        'Submit',
+                        'Sign UP',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -186,7 +187,7 @@ class Signup extends State<Sign> {
                         }
                       },
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
